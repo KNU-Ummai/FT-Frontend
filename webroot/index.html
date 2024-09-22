@@ -1,0 +1,194 @@
+<script>
+    fetch('https://ummai.cosh.kr/api/session')
+    .then((res) => {return res.json()})
+    .then((res) => {
+        if (res["result"] == "invalid") {
+            location.href="/login";
+        }
+    });
+</script>
+
+<html>
+    <head>
+        <title>Fall in US!</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta charset="utf-8">
+        <link rel="stylesheet" href="/lib/css/index.css">
+        <script src="https://kit.fontawesome.com/04ed03d0b6.js" crossorigin="anonymous"></script>
+    </head>
+    <body>
+        <div class="main-container">
+            <!-- Google 번역 -->
+<div id="google_translate_element" class="hd_lang"></div>
+<script>
+	function googleTranslateElementInit() {
+		new google.translate.TranslateElement({
+			pageLanguage: 'ko',
+			includedLanguages: 'ko,zh-CN,zh-TW,ja,vi,th,tl,km,my,mn,ru,en,fr,ar',
+			//layout: google.translate.TranslateElement.InlineLayout.SIMPLE,
+			autoDisplay: false
+		}, 'google_translate_element');
+	}
+</script>
+<script src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
+<!-- //Google 번역 -->
+            <div class="nav-container">
+                <li class="nav-content nav-selected" onclick="location.href='/'">
+                    <i class="fa-solid fa-house"></i>
+                    <text>home</text>
+                </li>
+                <li class="nav-content" onclick="location.href='/tips'">
+                    <i class="fa-solid fa-magnifying-glass"></i>
+                    <text>tips</text>
+                </li>
+                <li class="nav-content">
+                    <i class="fa-solid fa-bars" onclick="location.href='/suggestion'"></i>
+                    <text>suggestion</text>
+                </li>
+                <li class="nav-content">
+                    <i class="fa-solid fa-comment" onclick="location.href='/chat'"></i>
+                    <text>chat</text>
+                </li>
+            </div>
+            
+            <div class="card-container" style="align-items:center; word-spacing: -2;">
+                <h4>You Aren't typical foreigner, just Fall In Us!</h4>
+            </div>
+            
+            <div class="card-container profile-card" onclick="location.href='/profile'">
+                <img class="profile-card-img" id="p_img" src="https://cdn-icons-png.flaticon.com/512/1144/1144760.png">
+                <div class="profile-card-content">
+                    <h3 style="margin-bottom:10px; cursor:pointer">My Profile</h3>
+                    <ul>
+                        <li>Name: <b id="p_name">...</b></li>
+                        <li>Major: <b id="p_major">...</b></li>
+                        <li>Country: <b id="p_country">...</b></li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="card-container tip-card">
+                <h3 class="card-title">Tips for KNU!</h3>
+                <div class="tip-list">
+                </div>
+            </div>
+            
+            <div class="card-container suggestion-card">
+                <h3 class="card-title">We're pretty similar! - major</h3>
+                <div class="sugg-list">
+                    
+                </div>
+            </div>
+            
+            <div class="card-container tip-card">
+                <h3 class="card-title">KNU Notice</h3>
+                <div class="tip-list">
+                    <div class="tip-row">
+                        <div class="tip-title">Winners of the Spring 2024 Video Contest</div>
+                        <div class="tip-time">24/06/07</div>
+                    </div>
+                    <div class="tip-row">
+                        <div class="tip-title">Spring 2024 Video Contest</div>
+                        <div class="tip-time">24/04/05</div>
+                    </div>
+                    <div class="tip-row">
+                        <div class="tip-title">Winners of the Fall 2023 Video Contest</div>
+                        <div class="tip-time">23/11/29</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </body>
+</html>
+
+<script>
+    fetch('https://ummai.cosh.kr/api/users/userInfo')
+    .then((res) => {return res.json()})
+    .then((res) => {
+        if (res["result"] != "success") {
+            fetch('https://ummai.cosh.kr/api/users/logout')
+            alert("something went wrong... please visit later...")
+            location.go("/login");
+            return;
+        }
+        p_name.innerText = res["info"]["name"];
+        p_major.innerText = res["info"]["major"];
+        p_country.innerText = res["info"]["country"];
+        p_img.src = res["info"]["img"];
+    });
+
+    fetch('https://ummai.cosh.kr/api/board/article')
+    .then((res) => {return res.json()})
+    .then((res) => {
+        if (res["result"] != "success") {
+            fetch('https://ummai.cosh.kr/api/users/logout')
+            alert("something went wrong... please visit later...")
+            location.go("/login");
+            return;
+        }
+        
+        var listBox = document.querySelector(".tip-list")
+        lim = res["count"] > 5 ? 5 : res["count"];
+        for (i = 0; i < lim; i++) {
+            article = res["articles"][i]
+            listBox.innerHTML = listBox.innerHTML +
+                    '<div class="tip-row" onclick="location.href=\'/article?article_id='+article["article_id"]+'\'">' +
+                    '    <div class="tip-title">'+article["title"]+'</div>' +
+                    '    <div class="tip-time">'+article["postTime"]+'</div>' +
+                    '</div>'
+        }
+    });
+    
+    async function suggestion() {
+        const filter_no = Math.floor(Math.random() * 4) + 1;
+        
+        let filter = '';
+        switch(filter_no) {
+            case 1:
+                filter = 'all';
+                break;
+            case 2:
+                filter = 'major';
+                break;
+            case 3:
+                filter = 'college';
+                break;
+            case 4:
+                filter = 'country';
+                break;
+            default:
+                filter = null;
+                break; 
+        }
+
+        const result = await fetch(`https://ummai.cosh.kr/api/users/userInfo/randomSuggestion/${filter}`)
+        res = await result.json();
+        
+        if (res["result"] != "success") {
+            //fetch('https://ummai.cosh.kr/api/users/logout')
+            //alert("something went wrong... please visit later...")
+            //location.go("/login");
+            return;
+        }
+
+        suggBox = document.querySelector(".sugg-list")
+        lim = res["count"] > 5 ? 5 : res["count"];
+        for (i = 0; i < lim; i++) {
+            user = res["info"][i];
+            suggBox.innerHTML = suggBox.innerHTML +
+                '<div class="sugg-box" onclick="location.href=\'/chatView?target='+user["id"]+'\'">' +
+                    '<div class="sugg-row">'+
+                        '<div class="sugg-name">'+
+                            '<b>'+user["name"]+' </b>'+
+                            '<small> '+user["id"]+'</small>'+
+                        '</div>'+
+                        '<span class="sugg-country">'+user["country"]+'</span>' +
+                    '</div>'+
+                    '<div class="sugg-row"><small>major: '+user["major"]+'</small></div>'+
+                    '<div class="sugg-row sugg-intro">"'+user["introduction"]+'"</div>'+
+                '</div>'
+        }
+    }
+    suggestion();
+    
+</script>

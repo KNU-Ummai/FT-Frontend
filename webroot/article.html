@@ -1,0 +1,145 @@
+<script>
+    fetch('https://ummai.cosh.kr/api/session')
+    .then((res) => {return res.json()})
+    .then((res) => {
+        if (res["result"] == "invalid") {
+            location.href="/login";
+        }
+    });
+</script>
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Article</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 20px;
+            background-color: #f4f4f4;
+        }
+
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            background-color: #fff;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            padding: 20px;
+        }
+
+        h1 {
+            font-size: 28px;
+            color: #333;
+            margin-bottom: 10px;
+            border-bottom: 2px solid #ddd;
+            padding-bottom: 10px;
+        }
+
+        .author {
+            font-size: 16px;
+            color: #555;
+            margin-bottom: 20px;
+            font-style: italic;
+        }
+
+        .content {
+            font-size: 18px;
+            line-height: 1.6;
+            margin-bottom: 30px;
+        }
+
+        .btn-list {
+            display: inline-block;
+            padding: 10px 20px;
+            background-color: #c4b5b5;
+            color: white;
+            text-align: center;
+            text-decoration: none;
+            border-radius: 5px;
+            font-size: 16px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        .btn-list:hover {
+            background-color: #fdfdfd;
+        }
+
+        .error {
+            color: red;
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container" id="article-container">
+        <!-- Google 번역 -->
+<div id="google_translate_element" class="hd_lang"></div>
+<script>
+function googleTranslateElementInit() {
+    new google.translate.TranslateElement({
+        pageLanguage: 'ko',
+        includedLanguages: 'ko,zh-CN,zh-TW,ja,vi,th,tl,km,my,mn,ru,en,fr,ar',
+        //layout: google.translate.TranslateElement.InlineLayout.SIMPLE,
+        autoDisplay: false
+    }, 'google_translate_element');
+}
+</script>
+<script src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
+<!-- //Google 번역 -->
+        <h1 id="article-title">Loading...</h1>
+        <div id="article-author" class="author"></div>
+        <p id="article-content" class="content"></p>
+        <a href="/tips" class="btn-list">Back to List</a> <!-- 목록으로 돌아가는 버튼 -->
+    </div>
+
+    <script>
+        // article_id 값을 가져오는 함수 (URL에서 가져오는 방식)
+        function getArticleId() {
+            const urlParams = new URLSearchParams(window.location.search);
+            return urlParams.get('article_id') || -1; // 기본값 1로 설정
+        }
+
+        // Fetch 요청으로 데이터를 가져오는 함수
+        async function fetchArticleData(articleId) {
+            try {
+                const response = await fetch(`https://ummai.cosh.kr/api/board/article/${articleId}`, {
+                    method: 'GET',
+                    headers: {
+                        'Content-Type': 'application/json',
+                    },
+                    credentials: 'include', // 쿠키를 포함하여 요청
+                });
+
+                if (!response.ok) {
+                    throw new Error(`HTTP error! status: ${response.status}`);
+                }
+
+                const adata = await response.json();
+                const data = adata.info;
+
+                // HTML 요소에 데이터 채워 넣기
+                document.getElementById('article-title').innerText = data.title;
+                document.getElementById('article-author').innerText = `Written by: ${data.author}`;
+                document.getElementById('article-content').innerHTML = data.content;
+
+            } catch (error) {
+                console.log('Error fetching article data:', error);
+                document.getElementById('article-title').innerText = 'Error loading article';
+                document.getElementById('article-title').classList.add('error');
+            }
+        }
+
+        // 페이지 로드 시 article 데이터를 가져오는 로직 실행
+        window.onload = () => {
+            const articleId = getArticleId();
+            fetchArticleData(articleId);
+        };
+    </script>
+</body>
+</html>

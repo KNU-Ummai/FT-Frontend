@@ -1,0 +1,64 @@
+<script>
+    fetch('https://ummai.cosh.kr/api/session')
+    .then((res) => {return res.json()})
+    .then((res) => {
+        if (res["result"] == "valid") {
+            location.href="/";
+        }
+    });
+</script>
+
+<html>
+    <head>
+        <title>Fall in US!</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta charset="utf-8">
+        <link rel="stylesheet" href="/lib/css/login.css">
+        <script src="https://kit.fontawesome.com/04ed03d0b6.js" crossorigin="anonymous"></script>
+    </head>
+    <body>
+        <div class="main-container">
+            <!-- Google 번역 -->
+<div id="google_translate_element" class="hd_lang"></div>
+<script>
+	function googleTranslateElementInit() {
+		new google.translate.TranslateElement({
+			pageLanguage: 'ko',
+			includedLanguages: 'ko,zh-CN,zh-TW,ja,vi,th,tl,km,my,mn,ru,en,fr,ar',
+			//layout: google.translate.TranslateElement.InlineLayout.SIMPLE,
+			autoDisplay: false
+		}, 'google_translate_element');
+	}
+</script>
+<script src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
+<!-- //Google 번역 -->
+            <h1>Fall In Us</h1>
+            <p style="margin-top:10px;"><small>Underground Rendezvous For Global KNU</small></p>
+            <div class="card-container">
+                <input id="idf" class="form-control" placeholder="id"></input>
+                <input id="pwf" type="password"  class="form-control" placeholder="password"></input>
+                <button onclick="login();" class="form-control">Login</button>
+                <a href="/register">have no account?</a>
+            </div>
+        </div>
+    </body>
+</html>
+
+<script>
+async function login() {
+    const result = await fetch('https://ummai.cosh.kr/api/users/login', {
+        method: 'POST',
+            headers: {
+            'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({"id": idf.value, "password":pwf.value}),
+    })
+    res = await result.json();
+    
+    if (res["result"] == "success" || res["detail"] == "already_logged_in") {
+        location.href="/";
+    } else {
+        alert("Failed to login!");
+    }
+}
+</script>

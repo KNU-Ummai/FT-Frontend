@@ -1,0 +1,91 @@
+<script>
+    fetch('https://ummai.cosh.kr/api/session')
+    .then((res) => {return res.json()})
+    .then((res) => {
+        if (res["result"] == "invalid") {
+            location.href="/login";
+        }
+    });
+</script>
+
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Profile Settings</title>
+        <link rel="stylesheet" href="/lib/css/writing.css">
+    </head>
+    <body>
+
+        <div class="container">
+            <!-- Google 번역 -->
+<div id="google_translate_element" class="hd_lang"></div>
+<script>
+	function googleTranslateElementInit() {
+		new google.translate.TranslateElement({
+			pageLanguage: 'ko',
+			includedLanguages: 'ko,zh-CN,zh-TW,ja,vi,th,tl,km,my,mn,ru,en,fr,ar',
+			//layout: google.translate.TranslateElement.InlineLayout.SIMPLE,
+			autoDisplay: false
+		}, 'google_translate_element');
+	}
+</script>
+<script src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
+<!-- //Google 번역 -->
+            <div class="topBar">
+                Profile Settings
+            </div>
+
+            <div class="profileBox">
+                <input class="titleInput profileInput" type="url" id="profile-picture" placeholder="Enter Profile Picture URL">
+            </div>
+
+            <div class="introBox">
+                <input class="titleInput introInput" id="intro" placeholder="Introduce yourself"></input>
+            </div>
+
+            <div class="checkboxBox">
+                <input type="checkbox" id="chat-allow">
+                <label for="chat-allow">Allow Chat</label>
+            </div>
+
+            <div class="btnBox">
+                <button class="btn" id="submitBtn">Submit</button>
+            </div>
+        </div>
+
+        <script>
+            document.getElementById('submitBtn').addEventListener('click', function(event) {
+                event.preventDefault();
+
+                const profilePicture = document.getElementById('profile-picture').value;
+                const intro = document.getElementById('intro').value;
+                const chatAllow = document.getElementById('chat-allow').checked;
+
+                // JSON 데이터 생성
+                const profileData = {
+                    profile_picture: profilePicture,
+                    intro: intro,
+                    chat_allow: chatAllow // true or false
+                };
+
+                // 데이터를 서버로 전송
+                fetch('https://ummai.cosh.kr/api/users/profile?a='+profilePicture+"&b="+intro+"&c="+chatAllow)
+                .then(response => {
+                    if (!response.ok) {
+                        throw new Error(`HTTP error! status: ${response.status}`);
+                    }
+                    return response.json();
+                })
+                .then(data => {
+                    console.log(data);
+                    // 성공적으로 제출된 후 페이지 이동 (필요할 경우)
+                    window.location.href = '/';
+                })
+                .catch(error => {
+                    console.error('Error:', error);
+                });
+            });
+        </script>
+    </body>
+</html>

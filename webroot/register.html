@@ -1,0 +1,638 @@
+<script>
+    fetch('https://ummai.cosh.kr/api/session')
+    .then((res) => {return res.json()})
+    .then((res) => {
+        if (res["result"] == "valid") {
+            location.href="/";
+        }
+    });
+</script>
+
+<html>
+    <head>
+        <title>Fall in US!</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta charset="utf-8">
+        <link rel="stylesheet" href="/lib/css/register.css">
+        <script src="https://kit.fontawesome.com/04ed03d0b6.js" crossorigin="anonymous"></script>
+    </head>
+    <body>
+        <div class="main-container">
+            <!-- Google 번역 -->
+<div id="google_translate_element" class="hd_lang"></div>
+<script>
+	function googleTranslateElementInit() {
+		new google.translate.TranslateElement({
+			pageLanguage: 'ko',
+			includedLanguages: 'ko,zh-CN,zh-TW,ja,vi,th,tl,km,my,mn,ru,en,fr,ar',
+			//layout: google.translate.TranslateElement.InlineLayout.SIMPLE,
+			autoDisplay: false
+		}, 'google_translate_element');
+	}
+</script>
+<script src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
+<!-- //Google 번역 -->
+            <h1>Fall In Us</h1>
+            <p style="margin-top:10px;"><small>Underground Rendezvous For Global KNU</small></p>
+            <div class="card-container">
+                <h3 class="card-title" style="margin-bottom:10px;">Register</h3>
+                <input id="idf" class="form-control" placeholder="id"></input>
+                <input id="pwf" type="password" class="form-control" placeholder="password"></input>
+                <input id="namef" class="form-control" placeholder="name"></input>
+                <input id="std_nof" class="form-control" placeholder="student ID number"></input>
+                <input id="emailf" class="form-control" placeholder="email"></input>
+                <select id="countryf" class="form-control">
+                    <option value="">Select Country</option>
+                    <option value="Afghanistan">Afghanistan</option>
+                    <option value="Åland Islands">Åland Islands</option>
+                    <option value="Albania">Albania</option>
+                    <option value="Algeria">Algeria</option>
+                    <option value="American Samoa">American Samoa</option>
+                    <option value="Andorra">Andorra</option>
+                    <option value="Angola">Angola</option>
+                    <option value="Anguilla">Anguilla</option>
+                    <option value="Antarctica">Antarctica</option>
+                    <option value="Antigua and Barbuda">Antigua and Barbuda</option>
+                    <option value="Argentina">Argentina</option>
+                    <option value="Armenia">Armenia</option>
+                    <option value="Aruba">Aruba</option>
+                    <option value="Australia">Australia</option>
+                    <option value="Austria">Austria</option>
+                    <option value="Azerbaijan">Azerbaijan</option>
+                    <option value="Bahamas">Bahamas</option>
+                    <option value="Bahrain">Bahrain</option>
+                    <option value="Bangladesh">Bangladesh</option>
+                    <option value="Barbados">Barbados</option>
+                    <option value="Belarus">Belarus</option>
+                    <option value="Belgium">Belgium</option>
+                    <option value="Belize">Belize</option>
+                    <option value="Benin">Benin</option>
+                    <option value="Bermuda">Bermuda</option>
+                    <option value="Bhutan">Bhutan</option>
+                    <option value="Bolivia (Plurinational State of)">
+                    Bolivia (Plurinational State of)
+                    </option>
+                    <option value="Bonaire, Sint Eustatius and Saba">
+                    Bonaire, Sint Eustatius and Saba
+                    </option>
+                    <option value="Bosnia and Herzegovina">Bosnia and Herzegovina</option>
+                    <option value="Botswana">Botswana</option>
+                    <option value="Bouvet Island">Bouvet Island</option>
+                    <option value="Brazil">Brazil</option>
+                    <option value="British Indian Ocean Territory">
+                    British Indian Ocean Territory
+                    </option>
+                    <option value="Brunei Darussalam">Brunei Darussalam</option>
+                    <option value="Bulgaria">Bulgaria</option>
+                    <option value="Burkina Faso">Burkina Faso</option>
+                    <option value="Burundi">Burundi</option>
+                    <option value="Cabo Verde">Cabo Verde</option>
+                    <option value="Cambodia">Cambodia</option>
+                    <option value="Cameroon">Cameroon</option>
+                    <option value="Canada">Canada</option>
+                    <option value="Cayman Islands">Cayman Islands</option>
+                    <option value="Central African Republic">Central African Republic</option>
+                    <option value="Chad">Chad</option>
+                    <option value="Chile">Chile</option>
+                    <option value="China">China</option>
+                    <option value="Christmas Island">Christmas Island</option>
+                    <option value="Cocos (Keeling) Islands">Cocos (Keeling) Islands</option>
+                    <option value="Colombia">Colombia</option>
+                    <option value="Comoros">Comoros</option>
+                    <option value="Congo">Congo</option>
+                    <option value="Congo, Democratic Republic of the">
+                    Congo, Democratic Republic of the
+                    </option>
+                    <option value="Cook Islands">Cook Islands</option>
+                    <option value="Costa Rica">Costa Rica</option>
+                    <option value="Côte d'Ivoire">Côte d'Ivoire</option>
+                    <option value="Croatia">Croatia</option>
+                    <option value="Cuba">Cuba</option>
+                    <option value="Curaçao">Curaçao</option>
+                    <option value="Cyprus">Cyprus</option>
+                    <option value="Czechia">Czechia</option>
+                    <option value="Denmark">Denmark</option>
+                    <option value="Djibouti">Djibouti</option>
+                    <option value="Dominica">Dominica</option>
+                    <option value="Dominican Republic">Dominican Republic</option>
+                    <option value="Ecuador">Ecuador</option>
+                    <option value="Egypt">Egypt</option>
+                    <option value="El Salvador">El Salvador</option>
+                    <option value="Equatorial Guinea">Equatorial Guinea</option>
+                    <option value="Eritrea">Eritrea</option>
+                    <option value="Estonia">Estonia</option>
+                    <option value="Eswatini">Eswatini</option>
+                    <option value="Ethiopia">Ethiopia</option>
+                    <option value="Falkland Islands (Malvinas)">
+                    Falkland Islands (Malvinas)
+                    </option>
+                    <option value="Faroe Islands">Faroe Islands</option>
+                    <option value="Fiji">Fiji</option>
+                    <option value="Finland">Finland</option>
+                    <option value="France">France</option>
+                    <option value="French Guiana">French Guiana</option>
+                    <option value="French Polynesia">French Polynesia</option>
+                    <option value="French Southern Territories">
+                    French Southern Territories
+                    </option>
+                    <option value="Gabon">Gabon</option>
+                    <option value="Gambia">Gambia</option>
+                    <option value="Georgia">Georgia</option>
+                    <option value="Germany">Germany</option>
+                    <option value="Ghana">Ghana</option>
+                    <option value="Gibraltar">Gibraltar</option>
+                    <option value="Greece">Greece</option>
+                    <option value="Greenland">Greenland</option>
+                    <option value="Grenada">Grenada</option>
+                    <option value="Guadeloupe">Guadeloupe</option>
+                    <option value="Guam">Guam</option>
+                    <option value="Guatemala">Guatemala</option>
+                    <option value="Guernsey">Guernsey</option>
+                    <option value="Guinea">Guinea</option>
+                    <option value="Guinea-Bissau">Guinea-Bissau</option>
+                    <option value="Guyana">Guyana</option>
+                    <option value="Haiti">Haiti</option>
+                    <option value="Heard Island and McDonald Islands">
+                    Heard Island and McDonald Islands
+                    </option>
+                    <option value="Holy See">Holy See</option>
+                    <option value="Honduras">Honduras</option>
+                    <option value="Hong Kong">Hong Kong</option>
+                    <option value="Hungary">Hungary</option>
+                    <option value="Iceland">Iceland</option>
+                    <option value="India">India</option>
+                    <option value="Indonesia">Indonesia</option>
+                    <option value="Iran (Islamic Republic of)">
+                    Iran (Islamic Republic of)
+                    </option>
+                    <option value="Iraq">Iraq</option>
+                    <option value="Ireland">Ireland</option>
+                    <option value="Isle of Man">Isle of Man</option>
+                    <option value="Israel">Israel</option>
+                    <option value="Italy">Italy</option>
+                    <option value="Jamaica">Jamaica</option>
+                    <option value="Japan">Japan</option>
+                    <option value="Jersey">Jersey</option>
+                    <option value="Jordan">Jordan</option>
+                    <option value="Kazakhstan">Kazakhstan</option>
+                    <option value="Kenya">Kenya</option>
+                    <option value="Kiribati">Kiribati</option>
+                    <option value="Korea (Democratic People's Republic of)">
+                    Korea (Democratic People's Republic of)
+                    </option>
+                    <option value="Korea, Republic of">Korea, Republic of</option>
+                    <option value="Kuwait">Kuwait</option>
+                    <option value="Kyrgyzstan">Kyrgyzstan</option>
+                    <option value="Lao People's Democratic Republic">
+                    Lao People's Democratic Republic
+                    </option>
+                    <option value="Latvia">Latvia</option>
+                    <option value="Lebanon">Lebanon</option>
+                    <option value="Lesotho">Lesotho</option>
+                    <option value="Liberia">Liberia</option>
+                    <option value="Libya">Libya</option>
+                    <option value="Liechtenstein">Liechtenstein</option>
+                    <option value="Lithuania">Lithuania</option>
+                    <option value="Luxembourg">Luxembourg</option>
+                    <option value="Macao">Macao</option>
+                    <option value="Madagascar">Madagascar</option>
+                    <option value="Malawi">Malawi</option>
+                    <option value="Malaysia">Malaysia</option>
+                    <option value="Maldives">Maldives</option>
+                    <option value="Mali">Mali</option>
+                    <option value="Malta">Malta</option>
+                    <option value="Marshall Islands">Marshall Islands</option>
+                    <option value="Martinique">Martinique</option>
+                    <option value="Mauritania">Mauritania</option>
+                    <option value="Mauritius">Mauritius</option>
+                    <option value="Mayotte">Mayotte</option>
+                    <option value="Mexico">Mexico</option>
+                    <option value="Micronesia (Federated States of)">
+                    Micronesia (Federated States of)
+                    </option>
+                    <option value="Moldova, Republic of">Moldova, Republic of</option>
+                    <option value="Monaco">Monaco</option>
+                    <option value="Mongolia">Mongolia</option>
+                    <option value="Montenegro">Montenegro</option>
+                    <option value="Montserrat">Montserrat</option>
+                    <option value="Morocco">Morocco</option>
+                    <option value="Mozambique">Mozambique</option>
+                    <option value="Myanmar">Myanmar</option>
+                    <option value="Namibia">Namibia</option>
+                    <option value="Nauru">Nauru</option>
+                    <option value="Nepal">Nepal</option>
+                    <option value="Netherlands, Kingdom of the">
+                    Netherlands, Kingdom of the
+                    </option>
+                    <option value="New Caledonia">New Caledonia</option>
+                    <option value="New Zealand">New Zealand</option>
+                    <option value="Nicaragua">Nicaragua</option>
+                    <option value="Niger">Niger</option>
+                    <option value="Nigeria">Nigeria</option>
+                    <option value="Niue">Niue</option>
+                    <option value="Norfolk Island">Norfolk Island</option>
+                    <option value="North Macedonia">North Macedonia</option>
+                    <option value="Northern Mariana Islands">Northern Mariana Islands</option>
+                    <option value="Norway">Norway</option>
+                    <option value="Oman">Oman</option>
+                    <option value="Pakistan">Pakistan</option>
+                    <option value="Palau">Palau</option>
+                    <option value="Palestine, State of[b]">Palestine, State of[b]</option>
+                    <option value="Panama">Panama</option>
+                    <option value="Papua New Guinea">Papua New Guinea</option>
+                    <option value="Paraguay">Paraguay</option>
+                    <option value="Peru">Peru</option>
+                    <option value="Philippines">Philippines</option>
+                    <option value="Pitcairn">Pitcairn</option>
+                    <option value="Poland">Poland</option>
+                    <option value="Portugal">Portugal</option>
+                    <option value="Puerto Rico">Puerto Rico</option>
+                    <option value="Qatar">Qatar</option>
+                    <option value="Réunion">Réunion</option>
+                    <option value="Romania">Romania</option>
+                    <option value="Russian Federation">Russian Federation</option>
+                    <option value="Rwanda">Rwanda</option>
+                    <option value="Saint Barthélemy">Saint Barthélemy</option>
+                    <option value="Saint Helena, Ascension and Tristan da Cunha">
+                    Saint Helena, Ascension and Tristan da Cunha
+                    </option>
+                    <option value="Saint Kitts and Nevis">Saint Kitts and Nevis</option>
+                    <option value="Saint Lucia">Saint Lucia</option>
+                    <option value="Saint Martin (French part)">
+                    Saint Martin (French part)
+                    </option>
+                    <option value="Saint Pierre and Miquelon">
+                    Saint Pierre and Miquelon
+                    </option>
+                    <option value="Saint Vincent and the Grenadines">
+                    Saint Vincent and the Grenadines
+                    </option>
+                    <option value="Samoa">Samoa</option>
+                    <option value="San Marino">San Marino</option>
+                    <option value="Sao Tome and Principe">Sao Tome and Principe</option>
+                    <option value="Saudi Arabia">Saudi Arabia</option>
+                    <option value="Senegal">Senegal</option>
+                    <option value="Serbia">Serbia</option>
+                    <option value="Seychelles">Seychelles</option>
+                    <option value="Sierra Leone">Sierra Leone</option>
+                    <option value="Singapore">Singapore</option>
+                    <option value="Sint Maarten (Dutch part)">
+                    Sint Maarten (Dutch part)
+                    </option>
+                    <option value="Slovakia">Slovakia</option>
+                    <option value="Slovenia">Slovenia</option>
+                    <option value="Solomon Islands">Solomon Islands</option>
+                    <option value="Somalia">Somalia</option>
+                    <option value="South Africa">South Africa</option>
+                    <option value="South Georgia and the South Sandwich Islands">
+                    South Georgia and the South Sandwich Islands
+                    </option>
+                    <option value="South Sudan">South Sudan</option>
+                    <option value="Spain">Spain</option>
+                    <option value="Sri Lanka">Sri Lanka</option>
+                    <option value="Sudan">Sudan</option>
+                    <option value="Suriname">Suriname</option>
+                    <option value="Svalbard and Jan Mayen[e]">
+                    Svalbard and Jan Mayen[e]
+                    </option>
+                    <option value="Sweden">Sweden</option>
+                    <option value="Switzerland">Switzerland</option>
+                    <option value="Syrian Arab Republic">Syrian Arab Republic</option>
+                    <option value="Taiwan, Province of China">
+                    Taiwan, Province of China
+                    </option>
+                    <option value="Tajikistan">Tajikistan</option>
+                    <option value="Tanzania, United Republic of">
+                    Tanzania, United Republic of
+                    </option>
+                    <option value="Thailand">Thailand</option>
+                    <option value="Timor-Leste">Timor-Leste</option>
+                    <option value="Togo">Togo</option>
+                    <option value="Tokelau">Tokelau</option>
+                    <option value="Tonga">Tonga</option>
+                    <option value="Trinidad and Tobago">Trinidad and Tobago</option>
+                    <option value="Tunisia">Tunisia</option>
+                    <option value="Türkiye">Türkiye</option>
+                    <option value="Turkmenistan">Turkmenistan</option>
+                    <option value="Turks and Caicos Islands">Turks and Caicos Islands</option>
+                    <option value="Tuvalu">Tuvalu</option>
+                    <option value="Uganda">Uganda</option>
+                    <option value="Ukraine">Ukraine</option>
+                    <option value="United Arab Emirates">United Arab Emirates</option>
+                    <option value="United Kingdom of Great Britain and Northern Ireland">
+                    United Kingdom of Great Britain and Northern Ireland
+                    </option>
+                    <option value="United States of America">United States of America</option>
+                    <option value="United States Minor Outlying Islands">
+                    United States Minor Outlying Islands
+                    </option>
+                    <option value="Uruguay">Uruguay</option>
+                    <option value="Uzbekistan">Uzbekistan</option>
+                    <option value="Vanuatu">Vanuatu</option>
+                    <option value="Venezuela (Bolivarian Republic of)">
+                    Venezuela (Bolivarian Republic of)
+                    </option>
+                    <option value="Viet Nam">Viet Nam</option>
+                    <option value="Virgin Islands (British)">Virgin Islands (British)</option>
+                    <option value="Virgin Islands (U.S.)">Virgin Islands (U.S.)</option>
+                    <option value="Wallis and Futuna">Wallis and Futuna</option>
+                    <option value="Western Sahara">Western Sahara</option>
+                    <option value="Yemen">Yemen</option>
+                    <option value="Zambia">Zambia</option>
+                    <option value="Zimbabwe">Zimbabwe</option>
+                </select>
+                <select id="collegef" class="form-control" onchange="updateMajorList()">
+                    <option value="">
+                        Select College
+                    </option>
+                    <option value="College of Humanities">College of Humanities</option>
+                    <option value="College of Social Sciences">
+                        College of Social Sciences
+                    </option>
+                    <option value="College of Natural Sciences">
+                        College of Natural Sciences
+                    </option>
+                    <option value="College of Economics & Business Administration">
+                        College of Economics & Business Administration
+                    </option>
+                    <option value="College of Engineering">College of Engineering</option>
+                    <option value="College of IT Engineering">
+                        College of IT Engineering
+                    </option>
+                    <option value="College of Agriculture and Life Sciences">
+                        College of Agriculture and Life Sciences
+                    </option>
+                    <option value="College of Music and Visual Arts">
+                        College of Music and Visual Arts
+                    </option>
+                    <option value="Teachers College">Teachers College</option>
+                    <option value="College of Medicine">College of Medicine</option>
+                    <option value="College of Dentistry">College of Dentistry</option>
+                    <option value="College of Veterinary Medicine">
+                        College of Veterinary Medicine
+                    </option>
+                    <option value="College of Human Ecology">College of Human Ecology</option>
+                    <option value="College of Nursing">College of Nursing</option>
+                    <option value="College of Pharmacy">College of Pharmacy</option>
+                    <option value="College of Ecology and Environmental Science">
+                        College of Ecology and Environmental Science
+                    </option>
+                    <option value="College of Science and Technology">
+                        College of Science and Technology
+                    </option>
+                    <option value="School of Health and Welfare">
+                        School of Health and Welfare
+                    </option>
+                    <option value="Global Leaders School">Global Leaders School</option>
+                    <option value="School of Public Administration">
+                        School of Public Administration
+                    </option>
+                    <option value="Undeclared Majors">Undeclared Majors</option>
+                    <option value="School of Science Technology, Biology and Undeclared Majors">
+                        School of Science Technology, Biology and Undeclared Majors
+                    </option>
+                </select>
+                <select id="majorf" class="form-control">
+                    
+                </select>
+                <button onclick="register()" class="form-control">Register</button>
+                <a href="/login">Already have account?</a>
+            </div>
+        </div>
+    </body>
+</html>
+
+<script>
+async function register() {
+    const result = await fetch('https://ummai.cosh.kr/api/users/register', {
+        method: 'POST',
+            headers: {
+            'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({"id": idf.value,
+                                "password":pwf.value,
+                                "name":namef.value,
+                                "std_no":'' + std_nof.value,
+                                "email":emailf.value,
+                                "country":countryf.value,
+                                "college":collegef.value,
+                                "major":majorf.value
+                            }),
+    })
+    res = await result.json();
+    
+    if (res["result"] == "success") {
+        alert("successfully registered!")
+        location.href="/login";
+    } else {
+        if (res["detail"] == "exist_account") {
+            alert("account is already exist!")
+        } else {
+            alert("please fill forms accurately");
+        }
+    }
+}
+
+function updateMajorList() {
+    if (collegef.value == "College of Humanities") {
+        majorf.innerHTML = '' + 
+        '<option value="Department of Korean Language and Literature">Department of Korean Language and Literature</option>' +  
+        '<option value="Department of English Language and Literature">Department of English Language and Literature</option>' +  
+        '<option value="Department of History">Department of History</option>' +  
+        '<option value="Department of Philosophy">Department of Philosophy</option>' +  
+        '<option value="Department of French Language and Literature">Department of French Language and Literature</option>' +  
+        '<option value="Department of German Language and Literature">Department of German Language and Literature</option>' +  
+        '<option value="Department of Chinese Language and Literature">Department of Chinese Language and Literature</option>' +  
+        '<option value="Department of Archaeology and Anthropology">Department of Archaeology and Anthropology</option>' +  
+        '<option value="Department of Japanese Language and Literature">Department of Japanese Language and Literature</option>' +  
+        '<option value="Department of Korean Literature in Classical Chinese">Department of Korean Literature in Classical Chinese</option>' +  
+        '<option value="Department of Russian Language and Literature">Department of Russian Language and Literature</option>' +  
+        ''
+    } else if (collegef.value == "College of Social Sciences") {
+        majorf.innerHTML = '' + 
+        '<option value="Department of Political Science and Diplomacy">Department of Political Science and Diplomacy</option>' +  
+        '<option value="Department of Sociology">Department of Sociology</option>' +  
+        '<option value="Department of Geography">Department of Geography</option>' +  
+        '<option value="Department of Library and Information Science">Department of Library and Information Science</option>' +  
+        '<option value="Department of Psychology">Department of Psychology</option>' +  
+        '<option value="School of Social Welfare">School of Social Welfare</option>' +  
+        '<option value="Department of Media and Communication">Department of Media and Communication</option>' +  
+        ''
+    } else if (collegef.value == "College of Natural Sciences") {
+        majorf.innerHTML = '' + 
+        '<option value="Department of Mathematics">Department of Mathematics</option>' +  
+        '<option value="Department of Physics">Department of Physics</option>' +  
+        '<option value="Department of Chemistry">Department of Chemistry</option>' +  
+        '<option value="Department of Statistics">Department of Statistics</option>' +  
+        '<option value="Major in Biotechnology">Major in Biotechnology</option>' +  
+        '<option value="Major in Biology">Major in Biology</option>' +  
+        '<option value="School of Earth System Sciences">School of Earth System Sciences</option>' +  
+        '<option value="Department of Geology">Department of Geology</option>' +  
+        '<option value="Department of Astronomy and Atmospheric sciences">Department of Astronomy and Atmospheric sciences</option>' +  
+        '<option value="Department of Oceanography">Department of Oceanography</option>' +  
+        ''
+    } else if (collegef.value == "College of Economics & Business Administration") {
+        majorf.innerHTML = '' + 
+        '<option value="School of Economics and Trade">School of Economics and Trade</option>' +  
+        '<option value="School of Business Administration">School of Business Administration</option>' +  
+        ''
+    } else if (collegef.value == "College of Engineering") {
+        majorf.innerHTML = '' + 
+        '<option value="Major in Materials Science and Metallurgical Engineering">Major in Materials Science and Metallurgical Engineering</option>' +  
+        '<option value="Major in Electronic Materials Science and Engineering">Major in Electronic Materials Science and Engineering</option>' +  
+        '<option value="School of Mechanical Engineering">School of Mechanical Engineering</option>' +  
+        '<option value="Major in Mechanical Engineering">Major in Mechanical Engineering</option>' +  
+        '<option value="Major in Architecture">Major in Architecture</option>' +  
+        '<option value="Major in Architectural Engineering">Major in Architectural Engineering</option>' +  
+        '<option value="Department of Civil Engineering">Department of Civil Engineering</option>' +  
+        '<option value="School of Energy Engineering">School of Energy Engineering</option>' +  
+        '<option value="Department of Polymer Science Engineering">Department of Polymer Science Engineering</option>' +  
+        '<option value="Department of Applied Chemistry">Department of Applied Chemistry</option>' +  
+        '<option value="Department of Chemical Engineering">Department of Chemical Engineering</option>' +  
+        '<option value="Department of Textile System Engineering">Department of Textile System Engineering</option>' +  
+        '<option value="Department of Environmental Engineering">Department of Environmental Engineering</option>' +  
+        ''
+    } else if (collegef.value == "College of IT Engineering") {
+        majorf.innerHTML = '' + 
+        '<option value="School of Electronics Engineering">School of Electronics Engineering</option>' +  
+        '<option value="School of Computer Science and Engineering">School of Computer Science and Engineering</option>' +  
+        '<option value="Department of Electrical Engineering">Department of Electrical Engineering</option>' +  
+        '<option value="Department of Mobile Engineering">Department of Mobile Engineering</option>' +  
+        ''
+    } else if (collegef.value == "College of Agriculture and Life Sciences") {
+        majorf.innerHTML = '' + 
+        '<option value="School of Applied Life Science">School of Applied Life Science</option>' +  
+        '<option value="Major in Plant Biosciences">Major in Plant Biosciences</option>' +  
+        '<option value="Major in Environment and Life Science">Major in Environment and Life Science</option>' +  
+        '<option value="Department of Applied Biology">Department of Applied Biology</option>' +  
+        '<option value="School of Food Science">School of Food Science</option>' +  
+        '<option value="Major in Food Bio-Industry">Major in Food Bio-Industry</option>' +  
+        '<option value="Major in Food Material">Major in Food Material</option>' +  
+        '<option value="Major in Food Applied Engineering">Major in Food Applied Engineering</option>' +  
+        '<option value="Major in Forestry">Major in Forestry</option>' +  
+        '<option value="Major in Wood & Paper Science">Major in Wood & Paper Science</option>' +  
+        '<option value="Major in Landscape Architecture">Major in Landscape Architecture</option>' +  
+        '<option value="Major in Agricultural Civil Engineering">Major in Agricultural Civil Engineering</option>' +  
+        '<option value="Major in Bio-industrial Machinery Engineering">Major in Bio-industrial Machinery Engineering</option>' +  
+        '<option value="Department of Horticultural Science">Department of Horticultural Science</option>' +  
+        '<option value="Department of Bio-fibers and Materials Science">Department of Bio-fibers and Materials Science</option>' +  
+        '<option value="Department of Food and Resource Economics">Department of Food and Resource Economics</option>' +  
+        '<option value="Department of Farm Management">Department of Farm Management</option>' +  
+        ''
+    } else if (collegef.value == "College of Music and Visual Arts") {
+        majorf.innerHTML = '' + 
+        '<option value="Department of music">Department of music</option>' +  
+        '<option value="Department of Korean Traditional Music">Department of Korean Traditional Music</option>' +  
+        '<option value="Department of Fine Arts">Department of Fine Arts</option>' +  
+        '<option value="Department of Design">Department of Design</option>' +  
+        ''
+    } else if (collegef.value == "Teachers College") {
+        majorf.innerHTML = '' + 
+        '<option value="School of European language Education">School of European language Education</option>' +  
+        '<option value="Department of German Language Education">Department of German Language Education</option>' +  
+        '<option value="Department of French Language Education">Department of French Language Education</option>' +  
+        '<option value="Department of History Education">Department of History Education</option>' +  
+        '<option value="Department of Geography Education">Department of Geography Education</option>' +  
+        '<option value="Department of Social Studies Education">Department of Social Studies Education</option>' +  
+        '<option value="Department of Physics Education">Department of Physics Education</option>' +  
+        '<option value="Department of Chemistry Educaion">Department of Chemistry Educaion</option>' +  
+        '<option value="Department of Biology Education">Department of Biology Education</option>' +  
+        '<option value="Department of Earth Science Educaion">Department of Earth Science Educaion</option>' +  
+        '<option value="Department of Education">Department of Education</option>' +  
+        '<option value="Department of Korean Language and Literature Education">Department of Korean Language and Literature Education</option>' +  
+        '<option value="Department of English Education">Department of English Education</option>' +  
+        '<option value="Department of Ethics Education">Department of Ethics Education</option>' +  
+        '<option value="Department of Mathematics Education">Department of Mathematics Education</option>' +  
+        '<option value="Department of Home Economics Education">Department of Home Economics Education</option>' +  
+        '<option value="Department of Physical Education">Department of Physical Education</option>' +  
+        ''
+    } else if (collegef.value == "College of Medicine") {
+        majorf.innerHTML = '' + 
+        '<option value="Department of Medicine">Department of Medicine</option>' +  
+        '<option value="Department of Pre-medicine">Department of Pre-medicine</option>' +  
+        ''
+    } else if (collegef.value == "College of Dentistry") {
+        majorf.innerHTML = '' + 
+        '<option value="Department of Dentistry">Department of Dentistry</option>' +  
+        ''
+    } else if (collegef.value == "College of Veterinary Medicine") {
+        majorf.innerHTML = '' + 
+        '<option value="Department of Veterinary Medicine">Department of Veterinary Medicine</option>' +  
+        ''
+    } else if (collegef.value == "College of Human Ecology") {
+        majorf.innerHTML = '' + 
+        '<option value="School of Child Studies">School of Child Studies</option>' +  
+        '<option value="Major in Child and Family Studies">Major in Child and Family Studies</option>' +  
+        '<option value="Major in Child Studies">Major in Child Studies</option>' +  
+        '<option value="Department of Clothing and Textiles">Department of Clothing and Textiles</option>' +  
+        '<option value="Department of Food Science and Nutrition">Department of Food Science and Nutrition</option>' +  
+        ''
+    } else if (collegef.value == "College of Nursing") {
+        majorf.innerHTML = '' + 
+        '<option value="Department of Nursing">Department of Nursing</option>' +  
+        ''
+    } else if (collegef.value == "College of Pharmacy") {
+        majorf.innerHTML = '' + 
+        '<option value="Department of Pharmacy">Department of Pharmacy</option>' +  
+        ''
+    } else if (collegef.value == "College of Ecology and Environmental Science") {
+        majorf.innerHTML = '' + 
+        '<option value="School of Ecology & Environmental System">School of Ecology & Environmental System</option>' +  
+        '<option value="Major in Plant Resources Environment">Major in Plant Resources Environment</option>' +  
+        '<option value="Major in Forest Environmental Science">Major in Forest Environmental Science</option>' +  
+        '<option value="School of Ecological Environment & Eco-tourism">School of Ecological Environment & Eco-tourism</option>' +  
+        '<option value="Department of Entomology">Department of Entomology</option>' +  
+        '<option value="Department of tourism">Department of tourism</option>' +  
+        '<option value="Department of Leisure Sports">Department of Leisure Sports</option>' +  
+        '<option value="Department of Animal Science">Department of Animal Science</option>' +  
+        '<option value="Department of Animal Biotechnology">Department of Animal Biotechnology</option>' +  
+        '<option value="Department of Horse/Companion and Wild Animal Science">Department of Horse/Companion and Wild Animal Science</option>' +  
+        ''
+    } else if (collegef.value == "College of Science and Technology") {
+        majorf.innerHTML = '' + 
+        '<option value="School of Disaster Prevention and Environmental Engineering">School of Disaster Prevention and Environmental Engineering</option>' +  
+        '<option value="Major in Constructional Environmental Engineering">Major in Constructional Environmental Engineering</option>' +  
+        '<option value="Major in Construction and Disaster Prevention Engineering">Major in Construction and Disaster Prevention Engineering</option>' +  
+        '<option value="Major in Eco-friendly Automotive">Major in Eco-friendly Automotive</option>' +  
+        '<option value="Major in Intelligent Automotive">Major in Intelligent Automotive</option>' +  
+        '<option value="Major in Textile Engineering">Major in Textile Engineering</option>' +  
+        '<option value="Major in Fashion design">Major in Fashion design</option>' +  
+        '<option value="Major in Aeronautical Satellite System Engineering">Major in Aeronautical Satellite System Engineering</option>' +  
+        '<option value="Major in Plant System Engineering">Major in Plant System Engineering</option>' +  
+        '<option value="School of Nano & Materials Science and Engineering">School of Nano & Materials Science and Engineering</option>' +  
+        '<option value="Major in Energy Chemical Engineering">Major in Energy Chemical Engineering</option>' +  
+        ''
+    } else if (collegef.value == "Major in New Materials Engineering") {
+        majorf.innerHTML = '' + 
+        ''
+    } else if (collegef.value == "") {
+        majorf.innerHTML = '' + 
+        '<option value="Department of Precision Mechanical Engineering">Department of Precision Mechanical Engineering</option>' +  
+        '<option value="Department of Computer Software">Department of Computer Software</option>' +  
+        '<option value="Department of Food and Food Service Industry">Department of Food and Food Service Industry</option>' +  
+        '<option value="Department of Dental Hygienics">Department of Dental Hygienics</option>' +  
+        '<option value="Major in Computer System Engineering">Major in Computer System Engineering</option>' +  
+        ''
+    } else if (collegef.value == "School of Health and Welfare") {
+        majorf.innerHTML = '' + 
+        '<option value="Major in Senile Health Welfare(Old)">Major in Senile Health Welfare(Old)</option>' +  
+        ''
+    } else if (collegef.value == "Global Leaders School") {
+        majorf.innerHTML = '' + 
+        '<option value="Global Leaders Shool(Old)">Global Leaders Shool(Old)</option>' +  
+        ''
+    } else if (collegef.value == "School of Public Administration") {
+        majorf.innerHTML = '' + 
+        '<option value="School of Pubilc Administration">School of Pubilc Administration</option>' +  
+        ''
+    } else if (collegef.value == "Undeclared Majors") {
+        majorf.innerHTML = '' + 
+        '<option value="Undeclared Major">Undeclared Major</option>' +  
+        ''
+    } else if (collegef.value == "School of Science Technology, Biology and Undeclared Majors") {
+        majorf.innerHTML = '' + 
+        '<option value="School of Science Technology, Biology and Undeclared Majors">School of Science Technology, Biology and Undeclared Majors</option>' +  
+        ''
+    } 
+}
+</script>

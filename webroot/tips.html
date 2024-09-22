@@ -1,0 +1,100 @@
+<script>
+    fetch('https://ummai.cosh.kr/api/session')
+    .then((res) => {return res.json()})
+    .then((res) => {
+        if (res["result"] == "invalid") {
+            location.href="/login";
+        }
+    });
+</script>
+
+<html>
+    <head>
+        <title>Fall in US!</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta charset="utf-8">
+        <link rel="stylesheet" href="/lib/css/tips.css">
+        <script src="https://kit.fontawesome.com/04ed03d0b6.js" crossorigin="anonymous"></script>
+    </head>
+    <body>
+        <div class="main-container">
+            <!-- Google 번역 -->
+<div id="google_translate_element" class="hd_lang"></div>
+<script>
+	function googleTranslateElementInit() {
+		new google.translate.TranslateElement({
+			pageLanguage: 'ko',
+			includedLanguages: 'ko,zh-CN,zh-TW,ja,vi,th,tl,km,my,mn,ru,en,fr,ar',
+			//layout: google.translate.TranslateElement.InlineLayout.SIMPLE,
+			autoDisplay: false
+		}, 'google_translate_element');
+	}
+</script>
+<script src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
+<!-- //Google 번역 -->
+            <div class="nav-container">
+                <li class="nav-content" onclick="location.href='/'">
+                    <i class="fa-solid fa-house"></i>
+                    <text>home</text>
+                </li>
+                <li class="nav-content nav-selected" onclick="location.href='/tips'">
+                    <i class="fa-solid fa-magnifying-glass"></i>
+                    <text>tips</text>
+                </li>
+                <li class="nav-content">
+                    <i class="fa-solid fa-bars" onclick="location.href='/suggestion'"></i>
+                    <text>suggestion</text>
+                </li>
+                <li class="nav-content">
+                    <i class="fa-solid fa-comment" onclick="location.href='/chat'"></i>
+                    <text>chat</text>
+                </li>
+            </div>
+            
+            <div class="card-container title-card">
+                <h3>TIPs for KNU!</h3>
+                <button class="write-btn" onclick="location.href='/writing'">Write</button>
+            </div>
+            
+            <div class="card-container tip-card">
+                <div class="tip-list">
+                    
+                </div>
+                <!--<div class="pagenation">
+                    <li><b><|</b></li>
+                    <li><b><</b></li>
+                    <li><b>1</b></li>
+                    <li><b>></b></li>
+                    <li><b>|></b></li>-->
+                </div>
+            </div>
+        </div>
+    </body>
+</html>
+<script>
+    fetch('https://ummai.cosh.kr/api/board/article')
+    .then((res) => {return res.json()})
+    .then((res) => {
+        if (res["result"] != "success") {
+            fetch('https://ummai.cosh.kr/api/users/logout')
+            alert("something went wrong... please visit later...")
+            location.go("/login");
+            return;
+        }
+        
+        var listBox = document.querySelector(".tip-list")
+        for (i = 0; i < res["count"]; i++) {
+            article = res["articles"][i]
+            listBox.innerHTML += `
+                    <div class="tip-box" onclick="location.href='/article?article_id=${article["article_id"]}'"}> 
+                         <div class="tip-row">
+                            <div class="tip-title">
+                                <b>${article["title"]}</b>
+                            </div>
+                            <span class="tip-time">${article["postTime"]}</span>
+                        </div>
+                        <div class="tip-row">${article["content"]}</div>
+                    </div>`
+        }
+    });
+</script>

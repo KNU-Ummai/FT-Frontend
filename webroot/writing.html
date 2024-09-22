@@ -1,0 +1,106 @@
+<script>
+    fetch('https://ummai.cosh.kr/api/session')
+    .then((res) => {return res.json()})
+    .then((res) => {
+        if (res["result"] == "invalid") {
+            location.href="/login";
+        }
+    });
+</script>
+
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Writing Page</title>
+        <link rel="stylesheet" href="/lib/css/writing.css">
+    </head>
+    <body>
+
+        <div class="container">
+            <!-- Google 번역 -->
+<div id="google_translate_element" class="hd_lang"></div>
+<script>
+	function googleTranslateElementInit() {
+		new google.translate.TranslateElement({
+			pageLanguage: 'ko',
+			includedLanguages: 'ko,zh-CN,zh-TW,ja,vi,th,tl,km,my,mn,ru,en,fr,ar',
+			//layout: google.translate.TranslateElement.InlineLayout.SIMPLE,
+			autoDisplay: false
+		}, 'google_translate_element');
+	}
+</script>
+<script src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
+<!-- //Google 번역 -->
+            <div class="topBar">
+                Tip Boarder
+            </div>
+
+            <div class="titleBox">
+                <input class="titleInput" type="text" id="title" placeholder="Please Write a Title">
+            </div>
+
+            <div class="contentsBox">
+                <textarea class="contentsInput" id="content" placeholder="Please Write Contents"></textarea>
+            </div>
+
+            <div class="attachmentBox">
+                <button class="attachment">Attachment</button>
+            </div>
+
+            <div class="btnBox">
+                <button class="btn" id="submitBtn">Submit</button>
+            </div>
+        </div>
+
+        <script>
+            document.getElementById('submitBtn').addEventListener('click', function(event) {
+                event.preventDefault();
+
+                const title = document.getElementById('title').value;
+                const content = document.getElementById('content').value;
+
+                if (title === '') {
+                    alert("You must write a Title");
+                    return;
+                }
+
+                if (content === '') {
+                    alert("You must write Content");
+                    return;
+                }
+
+                // JSON 데이터 생성
+                const writingArticle = {
+                    title: title,
+                    content: content,
+                    file: null // 파일 업로드 기능이 추가될 경우 사용
+                };
+
+                // 데이터를 서버로 전송
+                fetch('https://ummai.cosh.kr/api/board/article', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                    },
+                    credentials: 'include', // 쿠키를 포함하여 요청
+                    body: JSON.stringify(writingArticle)
+                })
+                .then(response => {
+                    if (!response.ok) {
+                        throw new Error(`HTTP error! status: ${response.status}`);
+                    }
+                    return response.json();
+                })
+                .then(data => {
+                    console.log(data);
+                    // 성공적으로 제출된 후 페이지 이동 (필요할 경우)
+                    window.location.href = '/tips';
+                })
+                .catch(error => {
+                    console.error('Error:', error);
+                });
+            });
+        </script>
+    </body>
+</html>

@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+
+<html>
+
+<head>
+    <title>Chat</title>
+</head>
+
+<body>
+    <h1>WebSocket Chat</h1>
+    target : 
+    <input type="text" id="target_id" autocomplete="off" />
+    <button onclick="connect()">connect</button>
+    <form action="" onsubmit="sendMessage(event)">
+        <input type="text" id="messageText" autocomplete="off" />
+        <button>Send</button>
+    </form>
+    <ul id='messages'>
+    </ul>
+    <script>
+        var ws;
+        function connect() {
+            ws = new WebSocket("wss://ummai.cosh.kr/ws/"+ target_id.value);
+            ws.onmessage = function(event) {
+                var messages = document.getElementById('messages')
+                var message = document.createElement('li')
+                var content = document.createTextNode(event.data)
+                message.appendChild(content)
+                messages.appendChild(message)
+            };
+        }
+
+        function sendMessage(event) {
+            var input = document.getElementById("messageText")
+            ws.send(input.value)
+            input.value = ''
+            event.preventDefault()
+        }
+    </script>
+</body>
+
+</html>
