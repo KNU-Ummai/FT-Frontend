@@ -1,0 +1,121 @@
+@import url("/lib/css/common.css");
+
+.card-container {
+    width:100%;
+    min-height:50px;
+    background-color: white;
+
+    border-radius: 15px;
+    padding:15px;
+    margin-bottom:30px;
+
+    box-shadow: 0px 0px 5px 0px rgba(0,0,0,0.1);
+
+    display:flex;
+    flex-direction: column;
+}
+
+@media(min-width:700px) {
+    .card-container {
+        border-radius: 20px;
+        padding:22px;
+    }
+}
+
+.profile-card {
+    height:150px;
+    display:flex;
+    flex-direction: row;
+    align-items: center;
+}
+
+.profile-card-content {
+    flex-grow:1;
+    display:flex;
+    flex-direction: column;
+    padding-left:10px;
+}
+
+.profile-card-content > ul > li {
+    margin-bottom:6px;
+    font-size:0.85em;
+}
+
+@media(min-width:700px) {
+    .profile-card {
+        height:200px;
+    }
+    .profile-card-content > ul > li {
+        margin-bottom:6px;
+        font-size:1em;
+    }
+}
+
+.profile-card-img {
+    width:200px;
+    max-width:32%;
+    height:100%;
+    object-fit: cover;
+    border-radius: 10px;
+    box-shadow: 0px 0px 5px 0px rgba(0,0,0,0.1);
+}
+
+
+/* public card */
+.card-title {
+    margin:5px 0px 20px 0px;
+}
+
+.tip-list {
+    width:100%;
+}
+
+.tip-row {
+    display:flex;
+    flex-direction: row;
+    width:100%;
+    overflow:hidden;
+    margin-bottom:10px;
+}
+
+.tip-title {
+    flex-grow:1;
+    white-space: nowrap;
+    word-break:keep-all;
+    text-overflow:ellipsis;
+    overflow:hidden;
+}
+
+.tip-time {
+    font-size:0.8em;
+    word-spacing: -3;
+    text-align:right;
+    width:62px;
+}
+
+.suggestion-card {
+    padding-bottom:10px !important;
+}
+
+.sugg-box {
+    border-bottom:1px #EAEAEA solid;
+    padding-bottom:10px;
+    margin-bottom:10px;
+}
+
+.sugg-row {
+    display:flex;
+    flex-direction: row;
+    justify-content: space-between;
+    margin-bottom:7px;
+    padding:0px 5px 0px 5px;
+}
+
+.sugg-intro {
+    text-align:center;
+    justify-content: center;
+    margin:10px 0px 0px 0px;
+    padding: 0px 20px 0px 20px;
+    word-spacing:-2px;
+    word-break: break-all;
+}
